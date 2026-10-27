@@ -9,15 +9,14 @@ pipeline {
                 bat "docker build -t mypythonflaskapp ."
             }
         }
-
-        stage('Run') {
+        // stage('Run') {
             steps {
                 echo "Run application in Docker Container"
 
                 bat "docker rm -f mycontainer || exit 0"
                 bat "docker run -d -p 5001:5000 --name mycontainer mypythonflaskapp"
 
-            }
+            // }
         }
     }
 
